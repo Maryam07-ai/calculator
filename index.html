@@ -1,45 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Calculator</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Calculator</title>
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
-    /> 
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div id="container">
-      <div id="Calculator">
-        <input type="text" id="input" />
-        <div id="buttonArea">
-          <button class="btn">%</button>
-          <button class="btn">CP</button>
-          <button class="btn">C</button>
-          <button class="btn"><i class="material-icons">&#xe14a;</i></button>
-          <button class="btn"></button>
-          <button class="btn"></button>
-          <button class="btn"></button>
-          <button class="btn"></button>
-          <button class="btn" onclick="EnterNumber(7)"">7</button>
-          <button class="btn" onclick="EnterNumber(8)">8</button>
-          <button class="btn" onclick="EnterNumber(9)">9</button>
-          <button class="btn">x</button>
-          <button class="btn" onclick="EnterNumber(4)">4</button>
-          <button class="btn" onclick="EnterNumber(5)">5</button>
-          <button class="btn" onclick="EnterNumber(6)">6</button>
-          <button class="btn">-</button>
-          <button class="btn" onclick="EnterNumber(1)" >1</button>
-          <button class="btn" onclick="EnterNumber(2)">2</button>
-          <button class="btn " onclick="EnterNumber(3)">3</button>
-          <button class="btn" onclick ="EnterNumber('+')">+</button>
-          <button class="btn"></button>
-          <button class="btn" onclick="EnterNumber(0)">0</button>
-          <button class="btn"onclick>.</button>
-          <button class="btn" onclick="equals()">=</button>
+    <header>
+      <h1>Advanced Calculator</h1>
+      <div class="theme-toggle">
+        <label for="theme-switch">Dark Mode</label>
+        <input type="checkbox" id="theme-switch" />
+      </div>
+    </header>
+
+    <main>
+      <div id="container">
+        <div id="Calculator">
+          <div class="calculator-header">
+            <div class="model-info">SC-3000</div>
+            <div class="solar-panel">
+              <div class="solar-cell"></div>
+              <div class="solar-cell"></div>
+              <div class="solar-cell"></div>
+              <div class="solar-cell"></div>
+            </div>
+          </div>
+
+          <div id="display-container">
+            <input type="text" id="input" readonly />
+            <div id="history"></div>
+          </div>
+
+          <div class="memory-buttons">
+            <button class="mem-btn" onclick="memoryClear()">MC</button>
+            <button class="mem-btn" onclick="memoryRecall()">MR</button>
+            <button class="mem-btn" onclick="memoryAdd()">M+</button>
+            <button class="mem-btn" onclick="memorySubtract()">M-</button>
+            <button class="mem-btn" onclick="memoryStore()">MS</button>
+          </div>
+
+          <div id="buttonArea">
+            <button class="btn function" onclick="percent()">%</button>
+            <button class="btn function" onclick="copyInput()">Copy</button>
+            <button class="btn function" onclick="clearInput()">C</button>
+            <button class="btn function" onclick="backspace()">
+              <i class="material-icons">&#xe14a;</i>
+            </button>
+            <button class="btn function" onclick="squareRoot()">√</button>
+            <button class="btn function" onclick="power()">x²</button>
+            <button class="btn function" onclick="EnterOperator('/')">÷</button>
+            <button class="btn function" onclick="EnterOperator('*')">×</button>
+            <button class="btn number" onclick="EnterNumber(7)">7</button>
+            <button class="btn number" onclick="EnterNumber(8)">8</button>
+            <button class="btn number" onclick="EnterNumber(9)">9</button>
+            <button class="btn function" onclick="EnterOperator('-')">-</button>
+            <button class="btn number" onclick="EnterNumber(4)">4</button>
+            <button class="btn number" onclick="EnterNumber(5)">5</button>
+            <button class="btn number" onclick="EnterNumber(6)">6</button>
+            <button class="btn function" onclick="EnterOperator('+')">+</button>
+            <button class="btn number" onclick="EnterNumber(1)">1</button>
+            <button class="btn number" onclick="EnterNumber(2)">2</button>
+            <button class="btn number" onclick="EnterNumber(3)">3</button>
+            <button class="btn equals" onclick="equals()">=</button>
+            <button class="btn number zero" onclick="EnterNumber(0)">0</button>
+            <button class="btn number" onclick="EnterDot()">.</button>
+          </div>
+        </div>
+
+        <div class="calculator-info">
+          <h2>Calculator Features</h2>
+          <ul>
+            <li>Basic arithmetic operations</li>
+            <li>Advanced functions (square root, power)</li>
+            <li>Memory functions</li>
+            <li>Keyboard support</li>
+            <li>Dark/Light mode toggle</li>
+          </ul>
+          <div class="keyboard-shortcuts">
+            <h3>Keyboard Shortcuts</h3>
+            <table>
+              <tr>
+                <th>Key</th>
+                <th>Function</th>
+              </tr>
+              <tr>
+                <td>0-9</td>
+                <td>Number input</td>
+              </tr>
+              <tr>
+                <td>+, -, *, /</td>
+                <td>Operators</td>
+              </tr>
+              <tr>
+                <td>Enter, =</td>
+                <td>Calculate result</td>
+              </tr>
+              <tr>
+                <td>Backspace</td>
+                <td>Delete last character</td>
+              </tr>
+              <tr>
+                <td>Esc, Delete</td>
+                <td>Clear all</td>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2023 Advanced Calculator | <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Use</a>
+      </p>
+    </footer>
   </body>
 </html>
