@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#Calcublator {
+  background-color: brown;
+  width: 25%;
+  height: 90vh;
+  margin-top: 2%;
+}
+input {
+  width: 98%;
+  height: 20%;border-style:none ;font-size: 48px;font-weight:bold; brown;color: #fff;
+}
